@@ -1,0 +1,116 @@
+from tkinter import *
+score=[]
+credits=[]
+sgpa=Tk()
+#sgpa.configure(background="BLACK")
+sgpa.title("SGPA CALCULATOR")
+sgpa.geometry("1000x750")
+def calculate():
+    total=0
+    tc=0
+    k=0
+    for i in range(0,8):
+        if ((not(score[i].get().isnumeric()))  or (credits[i].get().isalpha()) or (float(score[i].get()))<0 or (float(credits[i].get()))<=0):
+            k=1
+            break
+        total+=(float(score[i].get())*float(credits[i].get()))
+        tc+=float(credits[i].get())
+    if k==1:
+        l5.config(text="Please enter a valid score or credit!")
+    else:
+        result=total/tc
+        #k=format(result, ".2f")
+        l5.config(text=format(result,".2f"))
+        
+    
+l=Label(sgpa,text="Enter respective Grades and Credits for the following Subjects")
+l.grid(row=0,column=5)
+l1=Label(sgpa,text="Subject Names")
+l1.grid(row=1,column=4)
+l2=Label(sgpa,text="Grade Points")
+l2.grid(row=1,column=5)
+l3=Label(sgpa,text="Credits")
+l3.grid(row=1,column=6)
+
+s1=Label(sgpa,text="1.  P&S")
+s1.grid(row=3,column=4)
+e11=Entry(sgpa)
+e11.grid(row=3,column=5)
+e12=Entry(sgpa)
+e12.grid(row=3,column=6)
+score.append(e11)
+credits.append(e12)
+
+s2=Label(sgpa,text="2.   DM")
+s2.grid(row=4,column=4)
+e21=Entry(sgpa)
+e21.grid(row=4,column=5)
+e22=Entry(sgpa)
+e22.grid(row=4,column=6)
+score.append(e21)
+credits.append(e22)
+
+s3=Label(sgpa,text="3.  DLD")
+s3.grid(row=5,column=4)
+e31=Entry(sgpa)
+e31.grid(row=5,column=5)
+e32=Entry(sgpa)
+e32.grid(row=5,column=6)
+score.append(e31)
+credits.append(e32)
+
+s4=Label(sgpa,text="4.       JP")
+s4.grid(row=6,column=4)
+e41=Entry(sgpa)
+e41.grid(row=6,column=5)
+e42=Entry(sgpa)
+e42.grid(row=6,column=6)
+score.append(e41)
+credits.append(e42)
+
+s5=Label(sgpa,text="5.DBMS")
+s5.grid(row=7,column=4)
+e51=Entry(sgpa)
+e51.grid(row=7,column=5)
+e52=Entry(sgpa)
+e52.grid(row=7,column=6)
+score.append(e51)
+credits.append(e52)
+
+s6=Label(sgpa,text="   6. DBMSL")
+s6.grid(row=8,column=4)
+e61=Entry(sgpa)
+e61.grid(row=8,column=5)
+e62=Entry(sgpa)
+e62.grid(row=8,column=6)
+score.append(e61)
+credits.append(e62)
+
+s7=Label(sgpa,text="7.   JPL")
+s7.grid(row=9,column=4)
+e71=Entry(sgpa)
+e71.grid(row=9,column=5)
+e72=Entry(sgpa)
+e72.grid(row=9,column=6)
+score.append(e71)
+credits.append(e72)
+
+s8=Label(sgpa,text="8.    SLL")
+s8.grid(row=10,column=4)
+e81=Entry(sgpa)
+e81.grid(row=10,column=5)
+e82=Entry(sgpa)
+e82.grid(row=10,column=6)
+score.append(e81)
+credits.append(e82)
+
+submit=Button(sgpa,text="Calculate SGPA",command=calculate,width=12,height=2)
+submit.grid(row=11,column=5)
+
+l4=Label(sgpa,text="SGPA: ")
+l4.grid(row=14,column=5)
+
+
+l5=Label(sgpa)
+l5.grid(row=16,column=5)
+sgpa.mainloop()
